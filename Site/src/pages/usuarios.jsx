@@ -5,10 +5,6 @@ import viteLogo from './assets/vite.svg'
 import './App.css'
 import Cabecalho from '../src/componentes/Cabecalho'
 
-function Usuarios(){
-    return <h1>Bem vindo(a)</h1>
-}
-
 function DigitarNome(){
     const [nome, setNome] = useState("")
 
