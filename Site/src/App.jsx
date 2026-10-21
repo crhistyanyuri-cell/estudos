@@ -1,18 +1,26 @@
-import { use, useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { useState } from 'react'
 import './App.css'
 
-import Cabecalho  from './componentes/Cabecalho'
+
+import Usuarios from './pages/usuarios'
+import Cabecalho from '../../Componentes/Header/Header'
 
 
 function App() {
-  return (
+  const [pagina, setPagina] = useState ('')
+  return(
     <div>
-        <Cabecalho/>
-        <Teste/>
-    </div>   
+      <h1>Bem vindo</h1>
+      <button onClick={() => setPagina('Cabeçalho')}>
+        Pagina1
+      </button>
+      <button onClick={() => setPagina('Usuarios')}>
+        Pagina2
+      </button>
+
+      {pagina == 'Cabeçalho' && <Cabecalho></Cabecalho>}
+      {pagina == 'Usuarios' && <Usuarios></Usuarios>}
+    </div>
   )
 }
 

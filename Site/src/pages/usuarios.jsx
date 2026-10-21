@@ -1,25 +1,46 @@
-import { use, useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
-import Cabecalho from '../src/componentes/Cabecalho'
 
-function DigitarNome(){
-    const [nome, setNome] = useState("")
+import { useState } from 'react'
+import Cabecalho from '../componentes/Cabecalho'
 
-    return(
-        <div>
-            <Cabecalho></Cabecalho>
-            <input type="text" placeholder='Digite seu nome:'
-            value={nome} onChange={(evento) => setNome(evento.target.value)}/>
-            <button onClick={() =>{
-                if(nome.trim() !==''){
-                    setNome([...nome])
-                    setNome('')
-                }
-            }}></button>
-        </div>
-    )
+function Usuarios() {
+  const [nome, setnome] = useState('')
+  const [nomes, setnomes] = useState([])
+
+  return (
+    
+    <div>
+         <Cabecalho></Cabecalho>
+      <h1>Teste de Usuarios</h1>
+     
+      
+
+      <input
+        type="text"
+        placeholder="Digite um nome"
+        value={nome}
+        onChange={(evento) => setnome(evento.target.value)}
+      />
+
+      <button
+        onClick={() => {
+          if (nome.trim() !== '') {
+            setnomes([...nomes, nome])
+            setnome('')
+          }
+        }}
+      >
+        Adicionar
+      </button>
+
+      <h2>Lista</h2>
+
+      <ul>
+        {nomes.map((nome, indice) => (
+          <li key={indice}>{nome}</li>
+        ))}
+      </ul>
+    </div>
+  )
 }
-import Cabecalho from '../src/componentes/Cabecalho'
+
+export default Usuarios
